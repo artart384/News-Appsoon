@@ -1,7 +1,10 @@
+import 'dart:convert';
 import 'package:chips_choice/chips_choice.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:news_app/model/error.dart';
 import '../controller/controller.dart';
 import '../model/news.dart';
 import '../view_model/custom_appbar.dart';
@@ -14,7 +17,6 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double sizeHeight = MediaQuery.of(context).size.height;
     var controller = Get.put(Controller());
 
     return Scaffold(
@@ -39,34 +41,33 @@ class MainView extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          //For Headlines
-          GetBuilder<Controller>(
-            initState: (state) {
-              //rebuildAllChildren(context);
-              controller.loadPostsHeadlines();
-            },
-            builder: (controller) => Container(
-                margin: const EdgeInsets.only(left: 15),
-                child: StreamBuilder<News>(
-                    stream: controller.streamHeadlines!.stream,
-                    builder: (context, snapshot) {
-                      if (snapshot.hasError) {
-                        return Center(
-                          child: Text(snapshot.error.toString()),
-                        );
-                      } else if (snapshot.connectionState ==
-                          ConnectionState.waiting) {
-                        return const Center(
-                            child: CircularProgressIndicator(
-                          backgroundColor: Colors.green,
-                        ));
-                      } else if (snapshot.hasData) {
-                        return ListHeadlines(newsModel: snapshot.data!);
-                      }
-                      return const CircularProgressIndicator(
-                        backgroundColor: Colors.red,
-                      );
-                    })),
+          Container(
+            margin: const EdgeInsets.only(left: 15),
+            child: FutureBuilder<News>(
+              future: controller.getDataHeadlines(),
+              builder: (context, snapshot) {
+                if (snapshot.hasError) {
+                  if (snapshot.error.runtimeType == DioError) {
+                    DioError error = snapshot.error as DioError;
+                    ApiError apiError = ApiError.fromJson(
+                        jsonDecode(error.response.toString()));
+                    return Center(
+                      child: Text(apiError.message.toString()),
+                    );
+                  }
+                } else if (snapshot.connectionState ==
+                    ConnectionState.waiting) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (snapshot.hasData) {
+                  return ListHeadlines(newsModel: snapshot.data!);
+                }
+                return const CircularProgressIndicator(
+                  backgroundColor: Colors.red,
+                );
+              },
+            ),
           ),
           Obx(
             () => Padding(
@@ -95,10 +96,8 @@ class MainView extends StatelessWidget {
             ),
           ),
           SingleChildScrollView(
-              child: GetBuilder<Controller>(
-            initState: (state) => controller.loadPosts(),
-            builder: (controller) => StreamBuilder<News>(
-                stream: controller.streamController!.stream,
+            child: FutureBuilder<News>(
+                future: controller.getData(),
                 builder: (context, snapshot) {
                   if (snapshot.hasError) {
                     return Center(
@@ -136,7 +135,7 @@ class MainView extends StatelessWidget {
                   }
                   return const CircularProgressIndicator();
                 }),
-          ))
+          )
         ]),
       ),
     );

@@ -1,11 +1,7 @@
 import 'dart:async';
-import 'dart:convert';
+import 'package:dio/dio.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:http/http.dart' as http;
-import 'package:oktoast/oktoast.dart';
-import 'package:rxdart/rxdart.dart';
-
 import '../model/news.dart';
 
 class Controller extends GetxController {
@@ -15,6 +11,7 @@ class Controller extends GetxController {
   var imageCountry = 'assets/id.png'.obs;
   var isChange = false.obs;
   var category = 'business'.obs;
+  final dio = Dio();
   StreamController<News>? streamController;
   StreamController<News>? streamHeadlines;
   List<String> options = [
@@ -47,25 +44,10 @@ class Controller extends GetxController {
 
   var errorMsg = ''.obs;
 
-  @override
-  void onInit() {
-    streamController = BehaviorSubject(sync: true);
-    streamHeadlines = BehaviorSubject(sync: true);
-    loadPosts();
-    loadPostsHeadlines();
-    getData();
-    getDataHeadlines();
-    ever(
-        errorMsg,
-        (_) =>
-            showToast(errorMsg.value, duration: const Duration(seconds: 10)));
-    super.onInit();
-  }
-
   Future<News> getData() async {
-    http.Response res = await http.get(Uri.parse(urlEverything.value));
+    final res = await dio.get(urlEverything.value);
     if (res.statusCode == 200) {
-      return News.fromJson(json.decode(res.body));
+      return News.fromJson(res.data);
     } else {
       errorMsg.value = res.statusCode.toString();
       throw Exception(res.statusCode);
@@ -74,27 +56,13 @@ class Controller extends GetxController {
 
   Future<News> getDataHeadlines() async {
     String url = urlHeadCate.value;
-    http.Response res = await http.get(Uri.parse(url));
+    final res = await dio.get(url);
     if (res.statusCode == 200) {
-      return News.fromJson(json.decode(res.body));
+      return News.fromJson(res.data);
     } else {
       errorMsg.value = res.statusCode.toString();
       throw Exception(res.statusCode);
     }
-  }
-
-  loadPosts() async {
-    getData().then((response) async {
-      streamController!.add(response);
-      return response;
-    });
-  }
-
-  loadPostsHeadlines() async {
-    getDataHeadlines().then((responseHead) async {
-      streamHeadlines!.add(responseHead);
-      return responseHead;
-    });
   }
 
   Stream<News> streamData(Duration refreshTime) async* {
