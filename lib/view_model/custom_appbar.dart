@@ -37,14 +37,6 @@ class CustomAppBar extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Country(
-                                        codeCountry: 'id',
-                                        imageUrl: 'assets/id.png',
-                                        nameCountry: 'Indonesia'),
-                                    Country(
-                                        codeCountry: 'jp',
-                                        imageUrl: 'assets/jp.png',
-                                        nameCountry: 'Japan'),
-                                    Country(
                                         codeCountry: 'us',
                                         imageUrl: 'assets/us.png',
                                         nameCountry: 'United State America'),
@@ -53,29 +45,10 @@ class CustomAppBar extends StatelessWidget {
                                         imageUrl: 'assets/gb.png',
                                         nameCountry: 'United Kingdom'),
                                     Country(
-                                        codeCountry: 'fr',
-                                        imageUrl: 'assets/fr.png',
-                                        nameCountry: 'France'),
-                                    Country(
-                                        codeCountry: 'ru',
-                                        imageUrl: 'assets/ru.png',
-                                        nameCountry: 'Russia'),
-                                    Country(
-                                        codeCountry: 'br',
-                                        imageUrl: 'assets/br.png',
-                                        nameCountry: 'Brazil'),
-                                    Country(
-                                        codeCountry: 'sa',
-                                        imageUrl: 'assets/sa.png',
-                                        nameCountry: 'Saudi Arabia'),
-                                    Country(
-                                        codeCountry: 'de',
-                                        imageUrl: 'assets/de.png',
-                                        nameCountry: 'Germany'),
-                                    Country(
-                                        codeCountry: 'ae',
-                                        imageUrl: 'assets/ae.png',
-                                        nameCountry: 'United Arab Emirates'),
+                                        codeCountry: 'th',
+                                        imageUrl: 'assets/th.png',
+                                        nameCountry: 'Thailand'),
+
                                   ]),
                             );
                           },

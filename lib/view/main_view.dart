@@ -20,11 +20,11 @@ class MainView extends StatelessWidget {
     var controller = Get.put(Controller());
 
     return Scaffold(
-      backgroundColor: const Color(0xfffbfaff),
+      backgroundColor: const Color(0xD0FFB6B6),
       appBar: AppBar(
         flexibleSpace: const CustomAppBar(),
         elevation: 0,
-        backgroundColor: const Color(0xfffbfaff),
+        backgroundColor: const Color(0xffffc676),
       ),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -35,7 +35,7 @@ class MainView extends StatelessWidget {
               style: GoogleFonts.dmSans(
                   fontWeight: FontWeight.w900,
                   fontSize: 30,
-                  color: const Color(0xff454d73)),
+                  color: const Color(0xffffffff)),
             ),
           ),
           const SizedBox(
@@ -123,7 +123,7 @@ class MainView extends StatelessWidget {
                               style: GoogleFonts.dmSans(
                                   fontWeight: FontWeight.w900,
                                   fontSize: 20,
-                                  color: Colors.grey),
+                                  color: Colors.black87),
                             ),
                             onPressed: () => Get.to(ListNews(
                               newsModel: snapshot.data!,

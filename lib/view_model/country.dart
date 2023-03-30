@@ -19,7 +19,7 @@ class Country extends StatelessWidget {
     return MaterialButton(
       onPressed: () {
         controller.urlHeadCate.value =
-            'https://newsapi.org/v2/top-headlines?country=$codeCountry&category=business&apiKey=4a112fa802ff4cbd9928a0e0b2708a15';
+            'https://newsapi.org/v2/top-headlines?country=$codeCountry&category=sports&apiKey=2d2f31e87ca748f5ae69451ca818f537';
         controller.tag.value = 0;
         controller.imageCountry.value = 'assets/$codeCountry.png';
         controller.codeCountry.value = codeCountry;

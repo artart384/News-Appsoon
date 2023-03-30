@@ -19,42 +19,17 @@ class CustomAppBarDetailNews extends StatelessWidget {
             child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     elevation: 2,
-                    backgroundColor: Colors.white,
+                    backgroundColor: Colors.black12,
                     shape: const CircleBorder()),
                 onPressed: () {
                   Get.back();
                 },
                 child: const Center(
-                  child: Icon(
-                    CupertinoIcons.arrow_left,
-                    color: Colors.black,
-                    size: 30,
-                  ),
+
                 )),
           ),
         ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            margin: const EdgeInsets.only(right: 20),
-            width: 50,
-            height: 50,
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                    elevation: 2,
-                    backgroundColor: Colors.white,
-                    shape: const CircleBorder()),
-                onPressed: () {},
-                child: Center(
-                    child: SizedBox(
-                        width: 20,
-                        height: 20,
-                        child: Image.asset(
-                          'assets/share.png',
-                          fit: BoxFit.cover,
-                        )))),
-          ),
-        ),
+
       ],
     );
   }

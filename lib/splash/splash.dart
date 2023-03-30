@@ -21,7 +21,7 @@ class Splash extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('assets/splash.png'),
+              Image.asset('assets/splash1.png'),
               Stack(
                 children: [
                   Obx(
@@ -32,7 +32,7 @@ class Splash extends StatelessWidget {
                       child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Text(
-                            'Your Partners In News',
+                            'GSportNews',
                             style: GoogleFonts.dmSans(fontSize: 20),
                           )),
                     ),
@@ -44,7 +44,7 @@ class Splash extends StatelessWidget {
                     child: AnimatedTextKit(
                       isRepeatingAnimation: false,
                       animatedTexts: [
-                        TyperAnimatedText('Open World',
+                        TyperAnimatedText('Welcome To',
                             textAlign: TextAlign.center,
                             textStyle: GoogleFonts.dmSans(fontSize: 40),
                             speed: const Duration(milliseconds: 300)),

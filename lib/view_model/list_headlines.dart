@@ -19,7 +19,7 @@ class ListHeadlines extends StatelessWidget {
                 author:
                     newsModel.articles?.elementAt(index).author ?? 'Unknown',
                 imageUrl: newsModel.articles?.elementAt(index).urlToImage ??
-                    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png',
+                    'https://www.memagazine.co.th/wp-content/uploads/2020/03/BREAKING-NEWS.png',
                 title: newsModel.articles?.elementAt(index).title ?? 'Untitled',
                 publishedAt: newsModel.articles?.elementAt(index).publishedAt ??
                     'Unknown',

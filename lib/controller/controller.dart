@@ -7,39 +7,32 @@ import '../model/news.dart';
 class Controller extends GetxController {
   var tag = 0.obs;
   var isLoading = false.obs;
-  var codeCountry = 'id'.obs;
-  var imageCountry = 'assets/id.png'.obs;
+  var codeCountry = 'gb'.obs;
+  var imageCountry = 'assets/gb.png'.obs;
   var isChange = false.obs;
-  var category = 'business'.obs;
+  var category = 'sports'.obs;
   final dio = Dio();
   StreamController<News>? streamController;
   StreamController<News>? streamHeadlines;
   List<String> options = [
-    'Business',
-    'Entertainment',
-    'General',
-    'Health',
-    'Science',
-    'Sports',
-    'Technology',
-    'Politics',
-    'Automotive',
-    'Education',
-    'Fashion',
-    'Travel',
-    'Food',
+    'Football',
+    'Basketball',
+    'Tennis',
+    'Baseball',
+
+
   ];
   var urlHeadCate =
-      'https://newsapi.org/v2/top-headlines?country=id&category=business&apiKey=4a112fa802ff4cbd9928a0e0b2708a15'
+      'https://newsapi.org/v2/top-headlines?country=gb&apiKey=2d2f31e87ca748f5ae69451ca818f537'
           .obs;
   //Headlines Country
   String urlHeadlines =
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=4a112fa802ff4cbd9928a0e0b2708a15';
+      'https://newsapi.org/v2/top-headlines?country=gb&category=sports&apiKey=2d2f31e87ca748f5ae69451ca818f537';
   //Headlines Country With Category
 
   //Everything about
   var urlEverything =
-      'https://newsapi.org/v2/everything?q=business&apiKey=4a112fa802ff4cbd9928a0e0b2708a15'
+      'https://newsapi.org/v2/everything?q=sports&apiKey=2d2f31e87ca748f5ae69451ca818f537'
           .obs;
 
   var errorMsg = ''.obs;

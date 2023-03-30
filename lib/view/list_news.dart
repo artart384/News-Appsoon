@@ -12,7 +12,7 @@ class ListNews extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.redAccent.shade400,
         flexibleSpace: const CustomAppBarDetailNews(),
       ),
       body: Padding(

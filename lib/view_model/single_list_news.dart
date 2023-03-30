@@ -25,7 +25,7 @@ class SingleListNews extends StatelessWidget {
               author: newsModel.articles?.elementAt(index).author ?? 'Unknown',
               desc: newsModel.articles?.elementAt(index).description ?? '',
               imageUrl: newsModel.articles?.elementAt(index).urlToImage ??
-                  'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png',
+                  'https://www.memagazine.co.th/wp-content/uploads/2020/03/BREAKING-NEWS.png',
               publishedAt:
                   newsModel.articles?.elementAt(index).publishedAt ?? '',
               title: newsModel.articles?.elementAt(index).title ?? 'Untitled'),
@@ -44,7 +44,7 @@ class SingleListNews extends StatelessWidget {
                 height: 150,
                 child: Image.network(
                   newsModel.articles?.elementAt(index).urlToImage ??
-                      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Image_not_available.png/640px-Image_not_available.png',
+                      'https://www.memagazine.co.th/wp-content/uploads/2020/03/BREAKING-NEWS.png',
                   fit: BoxFit.fill,
                 ),
               ),
@@ -63,7 +63,7 @@ class SingleListNews extends StatelessWidget {
                       style: GoogleFonts.dmSans(
                           fontWeight: FontWeight.w900,
                           fontSize: 24,
-                          color: const Color(0xff454d73)),
+                          color: const Color(0xff000000)),
                       maxLines: 2,
                       softWrap: true,
                       overflow: TextOverflow.visible,
@@ -79,7 +79,7 @@ class SingleListNews extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.calendar_month_outlined,
-                            color: Colors.grey.shade600,
+                            color: Colors.black87,
                           ),
                           const SizedBox(
                             width: 5,
@@ -87,7 +87,7 @@ class SingleListNews extends StatelessWidget {
                           Text(
                             formatDate,
                             style: GoogleFonts.dmSans(
-                                fontSize: 14, color: Colors.grey.shade600),
+                                fontSize: 14, color: Colors.black87),
                             maxLines: 2,
                             softWrap: true,
                             overflow: TextOverflow.visible,
@@ -98,7 +98,7 @@ class SingleListNews extends StatelessWidget {
                         children: [
                           Icon(
                             CupertinoIcons.time,
-                            color: Colors.grey.shade600,
+                            color: Colors.black87,
                           ),
                           const SizedBox(
                             width: 5,
@@ -106,7 +106,7 @@ class SingleListNews extends StatelessWidget {
                           Text(
                             '10 Min',
                             style: GoogleFonts.dmSans(
-                                fontSize: 14, color: Colors.grey.shade600),
+                                fontSize: 14, color: Colors.black87),
                             maxLines: 2,
                             softWrap: true,
                             overflow: TextOverflow.visible,

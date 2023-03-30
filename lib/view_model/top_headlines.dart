@@ -71,7 +71,7 @@ class TopHeadlines extends StatelessWidget {
                     style: GoogleFonts.dmSans(
                         fontWeight: FontWeight.w900,
                         fontSize: 20,
-                        color: const Color(0xff454d73)),
+                        color: const Color(0xff000000)),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     softWrap: true,
@@ -87,7 +87,7 @@ class TopHeadlines extends StatelessWidget {
                         child: Text(
                           author,
                           style: GoogleFonts.dmSans(
-                              fontSize: 16, color: Colors.grey.shade700),
+                              fontSize: 16, color: Colors.black87),
                           overflow: TextOverflow.ellipsis,
                           softWrap: true,
                           maxLines: 1,
@@ -96,7 +96,7 @@ class TopHeadlines extends StatelessWidget {
                       Text(
                         formatDate,
                         style: GoogleFonts.dmSans(
-                            fontSize: 16, color: Colors.grey.shade700),
+                            fontSize: 16, color: Colors.black87),
                       )
                     ],
                   )

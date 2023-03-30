@@ -27,7 +27,7 @@ class DetailNews extends StatelessWidget {
         elevation: 0,
         flexibleSpace: const CustomAppBarDetailNews(),
       ),
-      backgroundColor: const Color(0xfffbfaff),
+      backgroundColor: const Color(0xffffffff),
       body: SingleChildScrollView(
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Container(
@@ -49,30 +49,34 @@ class DetailNews extends StatelessWidget {
                 title,
                 style: GoogleFonts.dmSans(
                     fontWeight: FontWeight.w900,
-                    fontSize: 24,
-                    color: const Color(0xff454d73)),
-                textAlign: TextAlign.justify,
+                    fontSize: 26,
+                    color: const Color(0xff000000)),
+                textAlign: TextAlign.center,
               )),
           Container(
               margin: const EdgeInsets.fromLTRB(30, 10, 30, 0),
               child: Text(
                 author,
                 style: GoogleFonts.dmSans(
-                    fontSize: 16, color: Colors.grey.shade700),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16, color: Colors.black87),
               )),
           Container(
               margin: const EdgeInsets.fromLTRB(30, 0, 30, 10),
               child: Text(
                 formatDate,
                 style: GoogleFonts.dmSans(
-                    fontSize: 16, color: Colors.grey.shade700),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16, color: Colors.black87),
               )),
           Container(
             margin: const EdgeInsets.fromLTRB(30, 10, 30, 10),
             child: Text(
               desc,
               style:
-                  GoogleFonts.dmSans(fontSize: 16, color: Colors.grey.shade700),
+                  GoogleFonts.dmSans(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16, color: Colors.black87),
               textAlign: TextAlign.justify,
             ),
           ),
@@ -81,7 +85,9 @@ class DetailNews extends StatelessWidget {
             child: Text(
               content,
               style:
-                  GoogleFonts.dmSans(fontSize: 16, color: Colors.grey.shade700),
+                  GoogleFonts.dmSans(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16, color: Colors.black87),
               textAlign: TextAlign.justify,
             ),
           )
